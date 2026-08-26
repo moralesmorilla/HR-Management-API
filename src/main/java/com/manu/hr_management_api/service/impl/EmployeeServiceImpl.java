@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@AllArgsConstructor @NoArgsConstructor
+@AllArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
