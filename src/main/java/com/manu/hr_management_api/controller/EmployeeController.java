@@ -2,6 +2,7 @@ package com.manu.hr_management_api.controller;
 
 import com.manu.hr_management_api.entity.Employee;
 import com.manu.hr_management_api.service.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +28,12 @@ public class EmployeeController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Employee create(@RequestBody Employee employee){
+    public Employee create(@RequestBody @Valid Employee employee){
         return employeeService.create(employee);
     }
 
     @PutMapping("/{id}")
-    public Employee update(@PathVariable Long id,@RequestBody Employee employee){
+    public Employee update(@PathVariable Long id,@RequestBody @Valid Employee employee){
         return employeeService.update(id,employee);
     }
 
