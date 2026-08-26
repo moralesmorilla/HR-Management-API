@@ -30,7 +30,8 @@ public class Employee {
     @NotBlank
     private String email;
 
-
+    @Column(nullable = false,unique = true)
+    @NotBlank
     private String phone;
 
     @Column(nullable = false)

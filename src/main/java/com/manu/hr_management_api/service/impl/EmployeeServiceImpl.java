@@ -26,6 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
           throw new EmailAlreadyExistsException(employee.getEmail());
         }
         employee.setId(null);
+        employee.setActive(true);
 
         return employeeRepository.save(employee);
     }
@@ -60,6 +61,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setLastName(newEmployee.getLastName());
         employee.setPhone(newEmployee.getPhone());
         employee.setHireDate(newEmployee.getHireDate());
+        employee.setSalary(newEmployee.getSalary());
         employee.setActive(newEmployee.getActive());
         return employeeRepository.save(employee);
     }
