@@ -5,20 +5,17 @@ import com.manu.hr_management_api.exceptions.EmailAlreadyExistsException;
 import com.manu.hr_management_api.exceptions.EmployeeNotFoundException;
 import com.manu.hr_management_api.repository.EmployeeRepository;
 import com.manu.hr_management_api.service.EmployeeService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import org.apache.coyote.Response;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
-@AllArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService {
-    private EmployeeRepository employeeRepository;
+    private final EmployeeRepository employeeRepository;
+
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
 
     @Override
     public Employee create(Employee employee) {
